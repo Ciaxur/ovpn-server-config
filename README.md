@@ -130,3 +130,27 @@ With `openvpn` installed, run the following command:
 ```sh
 $ sudo openvpn --config ./openvpn.conf
 ```
+
+# DNS
+## Updating DNS on a Linux client
+Pushing DNS routes through dhcp-options from the server doesn't seem to play well with
+NetworkManager/resolvd. There is a workaround which requires updating the client's ovpn config.
+
+This workaround is documented & tracked on: https://github.com/alfredopalhares/openvpn-update-resolv-conf.
+
+
+After grabbing the [update-resolv-conf script][update-resolv-conf] ([update-resolve-conf.sh](./scripts/update-resolv-conf.sh)), all that's required is to add
+the following to the client's ovpn config, given the script lives in the user's working directory
+when invoking openvpn:
+```sh
+script-security 2
+up update-resolv-conf.sh
+down update-resolv-conf.sh
+```
+
+# License
+Licensed under the [GNU Public License V3.0](./LICENSE).
+
+
+[update-resolv-conf]: https://github.com/alfredopalhares/openvpn-update-resolv-conf/blob/master/update-resolv-conf.sh
+
