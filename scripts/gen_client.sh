@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Exit script on failure.
-set -e
-
 # Grab cli args.
 TRUSTED_CA_PKEY_PATH="$1"; shift
 TRUSTED_CA_SKEY_PATH="$1"; shift
@@ -50,6 +47,8 @@ elif [[ "$SERVER_NAME" = "" ]]; then
   exit 1
 fi
 
+# Exit script on failure.
+set -e
 
 # Variables used throughout the script.
 CLIENT_SKEY_FILENAME="$CLIENT_CERT_NAME.key"
