@@ -126,4 +126,7 @@ $ docker compose up -d
 ```
 
 #### Running on bare-metal
-TODO:
+With `openvpn` installed, run the following command:
+```sh
+$ sudo openvpn --config ./openvpn.conf
+```
