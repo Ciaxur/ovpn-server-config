@@ -113,6 +113,7 @@ $ docker compose up -d
 ### Run
 #### Running the OpenVPN server within Docker
 Docker uses the OpenVPN config that is present within `openvpn-data/openvpn.conf`.
+**NOTE:**: Move [openvpn.conf](./openvpn.conf) into [openvpn-data](./openvpn-data).
 
 This project is configured to use docker compose. Make sure that's installed and then simply
 run the following:

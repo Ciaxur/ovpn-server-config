@@ -1,0 +1,9 @@
+# Secrets
+clients
+secrets
+
+# OpenVPN Data
+openvpn-data/server
+openvpn-data/ca
+openvpn-data/ipp.txt
+openvpn-data/status.log
