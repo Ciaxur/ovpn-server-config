@@ -92,7 +92,7 @@ ovpngen \
   "$SERVER_NAME" \
   "$TRUSTED_CA_PKEY_PATH" \
   "$CLIENT_PKEY_FILENAME" \
-  "$CLIENT_CSR_FILENAME" \
+  "$CLIENT_SKEY_FILENAME" \
   "$TA_PATH" > "$CLIENT_OVPN_FILENAME"
 
 echo -e "Removing remote-cert-tls option from generated ovpn config."
