@@ -21,10 +21,5 @@ if [ ! -c /dev/net/tun ]; then
     mknod /dev/net/tun c 10 200
 fi
 
-
-# When using --net=host, use this to specify nat device.
-[ -z "$OVPN_NATDEVICE" ] && OVPN_NATDEVICE=eth0
-
-
 echo "Running 'openvpn ${USER_ARGS[@]}"
 exec openvpn ${USER_ARGS[@]}

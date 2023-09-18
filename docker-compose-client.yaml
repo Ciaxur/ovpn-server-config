@@ -1,0 +1,18 @@
+# https://github.com/kylemanna/docker-openvpn/blob/master/docs/docker-compose.md
+version: '3'
+services:
+  openvpn-client:
+    build:
+      context: ./docker-openvpn
+      dockerfile: Dockerfile.arm
+    image: openvpn-aarch64:latest
+    container_name: openvpn-client
+    environment:
+      - DEBUG=1
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    volumes:
+     - ./openvpn-data:/etc/openvpn
+    command: ["ovpn_client_run", "server.ovpn"]
+
