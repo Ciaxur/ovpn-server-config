@@ -123,20 +123,14 @@ Invoke the [setup_iptables.sh](./scripts/setup_iptables.sh) script with that int
 $ setup_iptables.sh end0 tun0
 ```
 
-## Running the OpenVPN server
-To modify the OpenVPN config, that is present within `openvpn-data/openvpn.conf`.
+### Run
 
-This project is configured to use docker compose. Make sure that's installed and then simply
-run the following:
+#### Running an OpenVPN client within Docker
+After going through the setup steps above, run the following:
 ```sh
-# This'll attach the current terminal session to the container.
-$ docker compose up
-
-# This'll daemonize it.
-$ docker compose up -d
+$ docker compose -f docker-compose-client.yaml up
 ```
 
-### Run
 #### Running the OpenVPN server within Docker
 Docker uses the OpenVPN config that is present within `openvpn-data/openvpn.conf`.
 **NOTE:** Move [openvpn.conf](./openvpn.conf) into [openvpn-data](./openvpn-data).
