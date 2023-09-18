@@ -53,6 +53,27 @@ Run the following to:
 $ ./gen_client.sh ./openvpn-data/ca/rootCA.crt openvpn-data/ca/rootCA.key openvpn-data/server/ta.key test ./secrets-csr-configs/client_csr.conf some.server.com
 ```
 
+### OpenVPN Server Environment Setup
+Within [openvpn-data/ovpn_env.sh](openvpn-data/ovpn_env.sh), modify the environment variables to satisfy
+your OpenVPN Server needs. Within the mentioned script, here are the values needed
+to populate:
+> NOTE: These can be bypassed, since already being configured by [openvpn.conf](./openvpn.conf) file.
+
+```sh
+# Set your public facing IPv4 address or domain as a URL.
+declare -x OVPN_SERVER_URL=udp://<IP/Domain>
+
+# Set the OpenVPN Server subut to provide clients with.
+declare -x OVPN_SERVER=10.8.0.0/24
+
+# Set DNS servers to push to the client. Example:
+declare -x OVPN_DNS_SERVERS=([0]="192.168.0.96")
+
+# Set the server's Common Name. This can be the public facing IPv4 address or
+# the domain name of the sever.
+declare -x OVPN_CN=<IP/Domain>
+```
+
 ### IP Tables Setup
 There is a helper script for setting everything up called `setup_iptables.sh`. Simply invoke using `sudo`.
 
