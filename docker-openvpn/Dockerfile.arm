@@ -1,4 +1,3 @@
-❯ bat Dockerfile.arm
 # Original credit: https://github.com/jpetazzo/dockvpn
 
 # Smallest base image
