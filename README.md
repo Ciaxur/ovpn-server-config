@@ -74,6 +74,11 @@ declare -x OVPN_DNS_SERVERS=([0]="192.168.0.96")
 declare -x OVPN_CN=<IP/Domain>
 ```
 
+### OpenVPN Client Setup
+Using the [docker-compose-client.yaml](./docker-compose-client.yaml) file, the user can spin up a small container that establishing
+a tunnel with a given server, provided under [openvpn-data/server.ovpn](./openvpn-data/server.ovpn), for which to be contained
+within that container. This is to enable the user to build on top of an openvpn client.
+
 ### IP Tables Setup
 There is a helper script for setting everything up called `setup_iptables.sh`. Simply invoke using `sudo`.
 
