@@ -79,6 +79,9 @@ Using the [docker-compose-client.yaml](./docker-compose-client.yaml) file, the u
 a tunnel with a given server, provided under [openvpn-data/server.ovpn](./openvpn-data/server.ovpn), for which to be contained
 within that container. This is to enable the user to build on top of an openvpn client.
 
+The OpenVPN Client allows invoking a `background_task.sh`(*./openvpn-data/background_task.sh*) script as part of staring up
+the container. This allows for extensive use of the client container.
+
 ### IP Tables Setup
 There is a helper script for setting everything up called `setup_iptables.sh`. Simply invoke using `sudo`.
 

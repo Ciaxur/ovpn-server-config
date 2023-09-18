@@ -14,11 +14,18 @@ cd $OPENVPN
 
 # Build runtime arguments array based on environment
 USER_ARGS=("${@}")
+BACKGROUND_TASK_SCRIPT="background_task.sh"
 
 # Setup the tunnel network interface device.
 mkdir -p /dev/net
 if [ ! -c /dev/net/tun ]; then
     mknod /dev/net/tun c 10 200
+fi
+
+# Run background task if present.
+if [ -e $BACKGROUND_TASK_SCRIP ]; then
+  echo "Running background task"
+  ./$BACKGROUND_TASK_SCRIPT
 fi
 
 echo "Running 'openvpn ${USER_ARGS[@]}"

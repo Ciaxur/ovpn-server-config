@@ -11,8 +11,14 @@ services:
       - DEBUG=1
     cap_add:
       - NET_ADMIN
+    networks:
+      - bridge_net
     restart: always
     volumes:
      - ./openvpn-data:/etc/openvpn
     command: ["ovpn_client_run", "server.ovpn"]
 
+
+networks:
+  bridge_net:
+    driver: bridge
