@@ -1,0 +1,18 @@
+# https://github.com/kylemanna/docker-openvpn/blob/master/docs/docker-compose.md
+version: '3'
+services:
+  openvpn-server:
+    network_mode: host
+    build:
+      context: ./docker-openvpn
+      dockerfile: Dockerfile.arm
+    image: openvpn-aarch64:latest
+    container_name: openvpn-server
+    cap_add:
+     - NET_ADMIN
+    ports:
+     - "1194:1194/udp"
+    restart: always
+    volumes:
+     - ./openvpn-data:/etc/openvpn
+
