@@ -1,5 +1,4 @@
 # https://github.com/kylemanna/docker-openvpn/blob/master/docs/docker-compose.md
-version: '3'
 services:
   openvpn-client:
     build:
